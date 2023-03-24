@@ -1,5 +1,5 @@
-import { redirect } from 'next/dist/server/api-utils';
-import { json } from 'react-router-dom';
+import { json, redirect } from 'react-router-dom';
+
 import AuthForm from '../components/AuthForm';
 
 function AuthenticationPage() {
@@ -34,10 +34,10 @@ export async function action({ request }) {
     return response;
   }
 
-  if (response.ok) {
-    throw json({ message: 'Could not authenticate user!' }, { status: 500 });
+  if (!response.ok) {
+    throw json({ message: 'Could not authenticate user.' }, { status: 500 });
   }
 
-  //soon: manage that token
+  // soon: manage that token
   return redirect('/');
 }
