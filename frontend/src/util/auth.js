@@ -11,7 +11,7 @@ export function getTokenDuration() {
 export function getAuthToken() {
   const token = localStorage.getItem('token');
 
-  if(!token) {
+  if (!token) {
     return null;
   }
 
@@ -25,7 +25,8 @@ export function getAuthToken() {
 }
 
 export function tokenLoader() {
-  return getAuthToken();
+  const token = getAuthToken();
+  return token;
 }
 
 export function checkAuthLoader() {
@@ -34,6 +35,4 @@ export function checkAuthLoader() {
   if (!token) {
     return redirect('/auth');
   }
-
-  return null;
 }

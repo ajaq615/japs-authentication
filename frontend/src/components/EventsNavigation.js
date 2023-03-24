@@ -20,16 +20,18 @@ function EventsNavigation() {
               All Events
             </NavLink>
           </li>
-          {token && <li>
-            <NavLink
-              to="/events/new"
-              className={({ isActive }) =>
-                isActive ? classes.active : undefined
-              }
-            >
-              New Event
-            </NavLink>
-          </li>}
+          {token && (
+            <li>
+              <NavLink
+                to="/events/new"
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                New Event
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

@@ -1,4 +1,4 @@
-import { NavLink, Form, useRouteLoaderData } from 'react-router-dom';
+import { Form, NavLink, useRouteLoaderData } from 'react-router-dom';
 
 import classes from './MainNavigation.module.css';
 import NewsletterSignup from './NewsletterSignup';
@@ -12,7 +12,7 @@ function MainNavigation() {
         <ul className={classes.list}>
           <li>
             <NavLink
-              to='/'
+              to="/"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
@@ -23,7 +23,7 @@ function MainNavigation() {
           </li>
           <li>
             <NavLink
-              to='/events'
+              to="/events"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
@@ -33,7 +33,7 @@ function MainNavigation() {
           </li>
           <li>
             <NavLink
-              to='/newsletter'
+              to="/newsletter"
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
@@ -44,7 +44,7 @@ function MainNavigation() {
           {!token && (
             <li>
               <NavLink
-                to='/auth?mode=login'
+                to="/auth?mode=login"
                 className={({ isActive }) =>
                   isActive ? classes.active : undefined
                 }
@@ -55,7 +55,7 @@ function MainNavigation() {
           )}
           {token && (
             <li>
-              <Form action='/logout' method='post'>
+              <Form action="/logout" method="post">
                 <button>Logout</button>
               </Form>
             </li>
