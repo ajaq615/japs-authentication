@@ -12,8 +12,8 @@ export async function action({ request }) {
   const searchParams = new URL(request.url).searchParams;
   const mode = searchParams.get('mode') || 'login';
 
-  if (mode !== 'login' || mode !== 'signup') {
-    throw json({ message: 'Unsupported mode' }, { status: 422 });
+  if (mode !== 'login' && mode !== 'signup') {
+    throw json({ message: 'Unsupported mode.' }, { status: 422 });
   }
 
   const data = await request.formData();
@@ -24,7 +24,7 @@ export async function action({ request }) {
 
   const response = await fetch('http://localhost:8080/' + mode, {
     method: 'POST',
-    header: {
+    headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(authData),
